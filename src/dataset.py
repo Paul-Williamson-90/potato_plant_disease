@@ -6,7 +6,7 @@ from skimage import io
 import torch
 from torch.utils.data import Dataset, DataLoader
 
-from transform import ImageTransform
+from src.transform import ImageTransform
 
 class PotatoDataset(Dataset):
 
