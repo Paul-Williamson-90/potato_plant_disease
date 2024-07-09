@@ -5,6 +5,7 @@ import pandas as pd
 from skimage import io
 import torch
 from torch.utils.data import Dataset, DataLoader
+from sklearn.utils.class_weight import compute_class_weight
 
 from src.transform import ImageTransform
 
@@ -22,6 +23,14 @@ class PotatoDataset(Dataset):
         if split != "all":
             self.dataset_meta = self.dataset_meta[self.dataset_meta['split'] == split]
         self.transform = transform
+
+    def return_class_weights(self):
+        class_weights = compute_class_weight(
+            class_weight="balanced",
+            classes=self.dataset_meta['label'].unique(),
+            y=self.dataset_meta['label']
+        )
+        return torch.tensor(class_weights, dtype=torch.float32)
 
     def __len__(self):
         return len(self.dataset_meta)
