@@ -17,6 +17,7 @@ def main():
 
     config = {
         "output_size": [255, 255],
+        "input_channels": 3,
         "rescale": True,
         "random_crop": True,
         "num_workers": 0,
@@ -34,6 +35,18 @@ def main():
         "patience": 5,
         "gradient_accumulation_steps": 8,
         "verbose": True,
+        "resnet_blocks": 3,
+        "resnet_channels": [128, 64, 32],
+        "resnet_kernel_sizes": [5, 4, 3],
+        "resnet_strides": [1, 1, 1],
+        "resnet_padding_sizes": [0, 0, 0],
+        "resnet_layers": [2, 2, 1],
+        "pool_kernel_size": 2,
+        "pool_stride": 2,
+        "dropout": 0.0,
+        "fc1_output_dims": 256,
+        "fc2_output_dims": 128,
+        "n_classes": 3
     }
 
     trainer = setup_train(config)
