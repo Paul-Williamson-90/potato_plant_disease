@@ -43,7 +43,7 @@ def prepare_dataset(image_meta_path, image_data_path, num_workers, batch_size, t
     class_weights = train_dataset.return_class_weights()
     return train_loader, val_loader, class_weights
 
-def construct_model(**config):
+def construct_model(config):
     config = ModelConfig(
         **config
     )
@@ -81,7 +81,7 @@ def setup_train(config):
     trainer = Trainer(
         model=model,
         train_loader=train_loader,
-        val_loader=val_loader,
+        test_loader=val_loader,
         loss_fn=loss_fn,
         optimizer=optimizer,
         scheduler=scheduler,
