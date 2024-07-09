@@ -17,6 +17,8 @@ from torch.optim.lr_scheduler import _LRScheduler
 
 from tqdm.auto import tqdm
 
+from src.models.model import Model
+
 logger = logging.getLogger(__name__)
 
 logging.basicConfig(
@@ -33,7 +35,7 @@ class Trainer:
             self,
             train_loader: DataLoader,
             test_loader: DataLoader,
-            model: nn.Module,
+            model: Model,
             optimizer: Optimizer,
             loss_fn: nn.Module,
             n_epochs: int,
