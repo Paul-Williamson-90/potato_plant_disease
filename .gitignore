@@ -3,3 +3,4 @@ scratchpad.ipynb
 /potato-plant-diseases-data/
 potato-plant-diseases-data.zip
 .DS_Store
+*/__pycache__/*
