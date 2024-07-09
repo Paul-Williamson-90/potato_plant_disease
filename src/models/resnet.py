@@ -166,7 +166,7 @@ class ResNet(Model):
             resnet_layers=self.config.config["resnet_layers"],
             pool_kernel_size=self.config.config["pool_kernel_size"],
             pool_stride=self.config.config["pool_stride"],
-            input_size=self.config.config["image_input_shape"][0],
+            input_size=self.config.config["output_size"][0],
             input_channels=self.config.config["input_channels"],
             dropout=self.config.config["dropout"]
         )
