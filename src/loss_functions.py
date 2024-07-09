@@ -29,6 +29,7 @@ class CategoricalFocalLoss(nn.Module):
             if self.alpha.type() != inputs.data.type():
                 self.alpha = self.alpha.type_as(inputs.data)
             alpha_t = self.alpha.gather(0, targets)
+            alpha_t = alpha_t.unsqueeze(1) 
             focal_loss = alpha_t * focal_loss
 
         if self.reduction == 'mean':
