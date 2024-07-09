@@ -16,12 +16,15 @@ def main():
     check_dir_and_subdir_exists(logging_path)
 
     config = {
+        # DATA PREPROCESSING ARGS
         "output_size": [255, 255],
         "input_channels": 3,
         "rescale": True,
         "random_crop": True,
+        # DATA LOADING ARGS
         "num_workers": 0,
         "batch_size": 64,
+        # TRAINING ARGS
         "learning_rate": 1e-4,
         "weight_decay": 0.01,
         "gamma": 2.0,
@@ -35,6 +38,7 @@ def main():
         "patience": 5,
         "gradient_accumulation_steps": 8,
         "verbose": True,
+        # MODEL ARGS
         "resnet_blocks": 3,
         "resnet_channels": [128, 64, 32],
         "resnet_kernel_sizes": [5, 4, 3],
