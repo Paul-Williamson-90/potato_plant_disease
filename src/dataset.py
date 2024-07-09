@@ -61,7 +61,7 @@ def dataset_factory(
         transform = ImageTransform(
             output_size=[255, 255], rescale=True, random_crop=0.2, to_tensor=True
         )
-    ):
+    )->tuple[Dataset, DataLoader]:
     dataset = PotatoDataset(image_meta_path, image_data_path, split, transform)
     data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers)
     return dataset, data_loader
