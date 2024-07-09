@@ -5,3 +5,4 @@ potato-plant-diseases-data.zip
 .DS_Store
 */__pycache__/*
 /model_saves/
+/logs/
