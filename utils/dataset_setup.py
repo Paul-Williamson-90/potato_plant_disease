@@ -14,7 +14,7 @@ if __name__=="__main__":
         dataset = pd.concat(
             [
                 dataset, 
-                pd.DataFrame({"image": images, "label": [i] * len(images)})
+                pd.DataFrame({"image": [f"{c}/{x}" for x in images], "label": [i] * len(images)})
             ], 
             axis=0
         ).reset_index(drop=True)
@@ -28,4 +28,4 @@ if __name__=="__main__":
     dataset.loc[idxs[:train_size], "split"] = "train"
     dataset.loc[idxs[train_size:], "split"] = "test"
 
-    dataset.to_csv(f"{data_dir}/dataset_metadata.csv", index=False)
+    dataset.to_csv(f"potato-plant-diseases-data/PlantVillage/dataset_metadata.csv", index=False)
