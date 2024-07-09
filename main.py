@@ -13,7 +13,7 @@ def main():
     check_dir_and_subdir_exists(new_save_path)
 
     logging_path = f"logs/model_training.csv"
-    check_dir_and_subdir_exists(logging_path)
+    check_dir_and_subdir_exists("logs")
 
     config = {
         # DATA PREPROCESSING ARGS
