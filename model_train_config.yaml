@@ -1,0 +1,29 @@
+output_size: [255, 255]
+input_channels: 3
+rescale: True
+random_crop: True
+num_workers: 0
+batch_size: 32
+learning_rate: 0.001
+weight_decay: 0.01
+gamma: 2.0
+reduction: 'mean'
+n_epochs: 10
+early_stopping: True
+early_stopping_metric: 'val_loss'
+min_or_max: 'min'
+patience: 5
+gradient_accumulation_steps: 6
+verbose: True
+resnet_blocks: 3
+resnet_channels: [128, 64, 32]
+resnet_kernel_sizes: [5, 4, 3]
+resnet_strides: [1, 1, 1]
+resnet_padding_sizes: [0, 0, 0]
+resnet_layers: [2, 2, 1]
+pool_kernel_size: 2
+pool_stride: 2
+dropout: 0.2
+fc1_output_dims: 256
+fc2_output_dims: 128
+n_classes: 3
