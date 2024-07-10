@@ -95,7 +95,7 @@ class Trainer:
             self.optimizer.zero_grad()
         return loss.item()
     
-    def _epoch(
+    def epoch(
             self,
             n_epoch: int,
     ):
@@ -276,7 +276,7 @@ class Trainer:
         try:
             for epoch in range(self.n_epochs):
                 logger.info(f"Epoch {epoch+1}/{self.n_epochs}")
-                stop_training, _ = self._epoch(epoch+1)
+                stop_training, _ = self.epoch(epoch+1)
                 if stop_training:
                     break
         except KeyboardInterrupt:
