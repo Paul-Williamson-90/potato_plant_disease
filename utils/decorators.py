@@ -12,3 +12,12 @@ def inject_config_params(*param_names, config_path='config.yaml'):
             return func(*args, **kwargs, **injected_params)
         return wrapper
     return decorator
+
+def inject_config_single_model_train(config_path='model_train_config.yaml'):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            config = load_config(config_path)
+            # injected_params = {param: config[param] for param in param_names if param in config}
+            return func(config)
+        return wrapper
+    return decorator
