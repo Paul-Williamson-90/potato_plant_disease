@@ -6,3 +6,4 @@ potato-plant-diseases-data.zip
 *.pyc
 /model_saves/
 /logs/
+/raytune_experiments/
