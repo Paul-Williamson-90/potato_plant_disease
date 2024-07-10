@@ -2,7 +2,7 @@ import random
 import os
 import pandas as pd
 
-data_dir = "potato-plant-diseases-data/PlantVillage/PlantVillage"
+data_dir = os.path.abspath("potato-plant-diseases-data/PlantVillage/PlantVillage")
 
 if __name__=="__main__":
     
@@ -28,4 +28,12 @@ if __name__=="__main__":
     dataset.loc[idxs[:train_size], "split"] = "train"
     dataset.loc[idxs[train_size:], "split"] = "test"
 
-    dataset.to_csv(f"potato-plant-diseases-data/PlantVillage/dataset_metadata.csv", index=False)
+    csv_path = os.path.abspath("potato-plant-diseases-data/PlantVillage/dataset_metadata.csv")
+    dataset.to_csv(csv_path, index=False)
+
+    yaml = f"""image_meta_path: {csv_path}
+image_data_path: {data_dir}"""
+    
+    with open("config.yaml", "w") as f:
+        f.write(yaml)
+
