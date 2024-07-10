@@ -1,0 +1,32 @@
+metric: "val_loss"
+mode: "min"
+num_samples: 50
+max_concurrent_trials: 3
+output_size: {"search_method": "choice", "values": [[255, 255]]}
+input_channels: {"search_method": "choice", "values": [3]}
+rescale: {"search_method": "choice", "values": [True]}
+random_crop: {"search_method": "choice", "values": [True]}
+num_workers: {"search_method": "choice", "values": [0]}
+batch_size: {"search_method": "choice", "values": [4, 8, 16, 32]}
+learning_rate: {"search_method": "loguniform", "values": [0.00001, 0.1]}
+weight_decay: {"search_method": "loguniform", "values": [0.00001, 0.5]}
+gamma: {"search_method": "choice", "values": [0.5, 1.0, 1.5, 2.0, 2.5, 3.0]}
+reduction: {"search_method": "choice", "values": ["mean", "sum"]}
+n_epochs: {"search_method": "choice", "values": [10]}
+early_stopping: {"search_method": "choice", "values": [True]}
+early_stopping_metric: {"search_method": "choice", "values": ['val_loss']}
+min_or_max: {"search_method": "choice", "values": ['min']}
+patience: {"search_method": "choice", "values": [5]}
+gradient_accumulation_steps: {"search_method": "choice", "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+resnet_blocks: {"search_method": "choice", "values": [3]}
+resnet_channels: {"search_method": "choice", "values": [[128, 64, 32], [64, 32, 16], [32, 16, 8]]}
+resnet_kernel_sizes: {"search_method": "choice", "values": [[5, 4, 3]]}
+resnet_strides: {"search_method": "choice", "values": [[1, 1, 1]]}
+resnet_padding_sizes: {"search_method": "choice", "values": [[0, 0, 0]]}
+resnet_layers: {"search_method": "choice", "values": [[1, 1, 1], [2, 2, 2], [3, 3, 3]]}
+pool_kernel_size: {"search_method": "choice", "values": [2]}
+pool_stride: {"search_method": "choice", "values": [2]}
+dropout: {"search_method": "loguniform", "values": [0.1, 0.5]}
+fc1_output_dims: {"search_method": "choice", "values": [128, 256, 512]}
+fc2_output_dims: {"search_method": "choice", "values": [64, 128, 256]}
+n_classes: {"search_method": "choice", "values": [3]}
