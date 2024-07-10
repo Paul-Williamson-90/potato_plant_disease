@@ -23,9 +23,9 @@ def main():
         "random_crop": True,
         # DATA LOADING ARGS
         "num_workers": 0,
-        "batch_size": 64,
+        "batch_size": 32,
         # TRAINING ARGS
-        "learning_rate": 1e-4,
+        "learning_rate": 1e-3,
         "weight_decay": 0.01,
         "gamma": 2.0,
         "reduction": "mean",
@@ -36,7 +36,7 @@ def main():
         "early_stopping_metric": "val_loss",
         "min_or_max": "min",
         "patience": 5,
-        "gradient_accumulation_steps": 8,
+        "gradient_accumulation_steps": 6,
         "verbose": True,
         # MODEL ARGS
         "resnet_blocks": 3,
@@ -47,7 +47,7 @@ def main():
         "resnet_layers": [2, 2, 1],
         "pool_kernel_size": 2,
         "pool_stride": 2,
-        "dropout": 0.0,
+        "dropout": 0.2,
         "fc1_output_dims": 256,
         "fc2_output_dims": 128,
         "n_classes": 3
